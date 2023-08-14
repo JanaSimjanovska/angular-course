@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
+import { IProduct } from './product';
 
 @Component({
   selector: 'pm-products',
   templateUrl: './product-list.component.html',
+  styleUrls: ['product-list.component.css'], //DOESN'T APPLY STYLE, EVEN THOUGH CORRECTLY LOADS THEM
 })
 export class ProductListComponent {
   pageTitle = 'Product List';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
-  listFilter = 'cart'; 
-  products: any[] = [
+  listFilter = 'cart';
+  products: IProduct[] = [
     {
       productId: 1,
       productName: 'Leaf Rake',
