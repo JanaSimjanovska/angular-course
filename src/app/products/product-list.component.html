@@ -18,16 +18,16 @@
       <table class="table" *ngIf="products.length">
         <thead>
           <tr>
-            <th>
+            <th >
               <button class="btn btn-primary" (click)="toggleImage()">
                 {{ showImage ? "Hide" : "Show" }} Image
               </button>
             </th>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Available</th>
-            <th>Price</th>
-            <th>5 Star Rating</th>
+            <th class="thead">Product</th>
+            <th class="thead">Code</th>
+            <th class="thead">Available</th>
+            <th class="thead">Price</th>
+            <th class="thead">5 Star Rating</th>
           </tr>
         </thead>
         <tbody>

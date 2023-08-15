@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
 @Component({
@@ -6,7 +6,7 @@ import { IProduct } from './product';
   templateUrl: './product-list.component.html',
   styleUrls: ['product-list.component.css'], //DOESN'T APPLY STYLE, EVEN THOUGH CORRECTLY LOADS THEM
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   pageTitle = 'Product List';
   imageWidth = 50;
   imageMargin = 2;
@@ -44,6 +44,10 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  ngOnInit(): void {
+    
+  }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
