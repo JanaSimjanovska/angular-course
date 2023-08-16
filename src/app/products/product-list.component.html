@@ -15,10 +15,10 @@
       </div>
     </div>
     <div class="table-responsive">
-      <table class="table" *ngIf="products.length">
+      <table class="table" *ngIf="filteredProducts.length">
         <thead>
           <tr>
-            <th >
+            <th>
               <button class="btn btn-primary" (click)="toggleImage()">
                 {{ showImage ? "Hide" : "Show" }} Image
               </button>
@@ -31,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products">
+          <tr *ngFor="let product of filteredProducts">
             <td>
               <img
                 *ngIf="showImage"
@@ -42,10 +42,17 @@
               />
             </td>
             <td>{{ product.productName }}</td>
-            <td>{{ product.productCode | lowercase }}</td>
+            <td>
+              {{ product.productCode | lowercase | convertToSpaces : "-" }}
+            </td>
             <td>{{ product.releaseDate }}</td>
             <td>{{ product.price | currency : "EUR" : "symbol" : "1.2-2" }}</td>
-            <td>{{ product.starRating }}</td>
+            <td>
+              <pm-star
+                [rating]="product.starRating"
+                (ratingClicked)="onRatingClicked($event)"
+              ></pm-star>
+            </td>
           </tr>
         </tbody>
       </table>
